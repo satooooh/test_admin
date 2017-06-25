@@ -6,9 +6,43 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <body>
+      <header class="header">
+        <div class="header__bar_row">
+          <a href="/">最初の画面へ戻る</a>
+          <% if user_signed_in? %>
+            <div class="user_nav_grid-6">
+              <ul class="user__info" style="list-style:none;">
+                <li>
+                  <a href="/users/<%= current_user.id %>">マイページ</a>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
+              <a class="post" href="/products">注文する</a>
+            </div>
+          <% else %>
+            <div class="grid-6">
+              <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+            </div>
+          <% end %>
+        </div>
+      </header>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+    <footer class="footer">
+      <a class="post" href="/inquiry">お問い合わせ</a>
+      <a class="post" href="/guide">ご利用ガイド</a>
+      <a class="post" href="/faq">FAQ</a>
+      <a class="post" href="/columns">花コラム</a>
+      <a class="post" href="/magazine">マガジン</a>
+      <a class="post" href="/review">お客様の声</a>
+      <a class="post" href="/news">お知らせ</a>
+      <a class="post" href="/rules">利用規約</a>
+      <a class="post" href="/law">特定商取引法</a>
+      <a class="post" href="/privacy">個人情報保護方針</a>
+      <a class="post" href="/company">運営会社</a>
+    </footer>
+  </body>
 </html>
