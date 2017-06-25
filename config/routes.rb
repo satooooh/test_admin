@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'products/index'
-
-  get 'products/create'
+  get 'users/show'
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',

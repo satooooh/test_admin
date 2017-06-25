@@ -1,0 +1,9 @@
+<div class="contents row">
+  <p>注文一覧</p>
+  <% @show.each do |product| %>
+      <div class="content_post">
+        <%= simple_format(product.name) %>
+      </div>
+    <% end %>
+    <%= paginate(@show) %>
+</div>

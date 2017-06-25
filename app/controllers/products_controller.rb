@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+
+  before_action :move_to_inde
+
   def index
     @product = Product.new
   end
