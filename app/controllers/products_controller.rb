@@ -1,14 +1,14 @@
 class ProductsController < ApplicationController
 
-  before_action :move_to_inde
+  before_action :move_to_index
 
   def index
     @product = Product.new
   end
 
   def create
-    product = Product.create(name: product_params[:name], user_id: current_user.id)
-    # PostMailer.post_email(current_user, @product).deliver_now
+    @product = Product.create(name: product_params[:name], user_id: current_user.id)
+    PostMailer.post_email(current_user, @product).deliver_now
   end
 
 private

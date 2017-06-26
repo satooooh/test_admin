@@ -20,8 +20,8 @@ Rails.application.configure do
     port:                 587,
     address:              'smtp.gmail.com',
     domain:               'smtp.gmail.com',
-    user_name:            'o3system2017@gmail.com',
-    password:             'sugar310',
+    user_name:            'testmailer310@gmail.com',
+    password:             'Testmailer',
     authentication:       'login',
     enable_starttls_auto: true
   }
@@ -46,6 +46,7 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
